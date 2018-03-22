@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<link type="text/css" rel="stylesheet" href="../css/carousel.css">
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/carousel.js"></script>
+	</head>
+
+	<body>
+		
+		<div class="main">
+			<!--/* 图片展示部分 */-->
+			<div class="J_Poster poster-main" data-setting='{
+	                                                        
+	                                                        "height":270,
+	                                                        "posterWidth":640,
+	                                                        "posterHeight":270,
+	                                                        "scale":0.8,
+	                                                        "autoPlay":true,
+	                                                        "delay":4000,
+	                                                        "speed":300
+															}'>
+				<div class="poster-btn poster-prev-btn"></div>
+				<ul class="poster-list">
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/1.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/2.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/3.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/4.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/5.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/6.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/7.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/8.jpg" width="100%" height="100%"></a>
+					</li>
+					<li class="poster-item">
+						<a href="#"><img src="../img/indexpageimg/9.jpg" width="100%" height="100%"></a>
+					</li>
+				</ul>
+				<div class="poster-btn poster-next-btn"></div>
+			</div>
+														
+	        <!--/* 信息展示区 */-->
+			<div class="infomain">
+			    <div class="news">
+			    	<div class="titlenews">
+			    		<h2 class="title_left">新闻中心</h2>
+			    		<span class="title_right"><a href="#">More&gt;&gt;</a></span>
+			    	</div>
+			    	<div class="picnews">
+			    		<img src="../img/indexpageimg/newspic.gif" class="pic"/>
+			    		<div class="picinfo">
+			    			<a href="#"><h2>实验室开例会分享学习成果</h2></a>
+			    			<p>活动时间：10月15日<br />为促进实验室交流，实验室开展例会分享...<br /><a href="#">Learn More&gt;&gt;</a></p>
+			    		</div>
+			    	</div>
+			    	<div class="listnews">
+			    		<ul>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+			    		</ul>
+			    	</div>
+			    </div>
+			    <div class="study">
+			    	<div class="titlestudy">
+			    		<h2 class="title_left">课题分享</h2>
+			    		<span class="title_right"><a href="#">More&gt;&gt;</a></span>
+			    	</div>
+			    	<div class="studypic">
+			    		<img src="../img/indexpageimg/studypic.jpg" class="pic"/>
+			    		<a href="#"><h2>HTML5火拼俄罗斯基础讲解</h2></a>
+			    		<p>简介：本课题主要带领大家了解要实现火拼俄罗斯的基础知识WebSocket，以及socket.io,为后续实现火拼俄罗斯打下基础。</p>
+			    	</div>
+			    	<div class="studytype">
+			    		<ul>
+			    			<li>Web系统开发</li>
+			    			<li>移动应用开发</li>
+			    			<li>深度学习</li>
+			    			<li>大数据</li>
+			    		</ul>
+			    	</div>
+			    </div>
+			    <div class="ques">
+			    	<div class="titleques">
+			    		<h2 class="title_left">问题讨论</h2>
+			    		<span class="title_right"><a href="#">More&gt;&gt;</a></span>
+			    	</div>
+			    	<div class="queslist">
+			    		<ul>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+				    		<li><span>2017-06-01</span><a href="#">实验室参与精准扶贫项目</a></li>
+			    		</ul>
+			    	</div>
+			    </div>    
+			</div>
+       
+		</div> 
+		
+		<script>
+			$(function() {
+				Carousel.init($(".J_Poster"));
+			});
+		</script>
+	</body>
+</html>
+

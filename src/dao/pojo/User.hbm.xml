@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="dao.pojo">
+
+	<class name="User" table="USER">
+
+		<id name="userId" type="java.lang.Integer">
+			<column name="ID"></column>
+			<generator class="native" />
+		</id>
+
+		<property name="userName" type="java.lang.String">
+			<column name="USERNAME"></column>
+		</property>
+
+		<property name="userPassword" type="java.lang.String">
+			<column name="PASSWORD"></column>
+		</property>
+
+	</class>
+
+</hibernate-mapping>

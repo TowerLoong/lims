@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="dao.pojo">
+
+		<class name="UserInfo" table="USERINFO">
+
+		<id name="userId" type="java.lang.Integer">
+			<column name="UID"></column>
+			<generator class="native" />
+		</id>
+		
+		<property name="userName" column="UNAME"  type="java.lang.String" />
+		<property name="userSId" column="USID"  type="java.lang.String" />
+		<property name="userMajor" column="UMAJOR"  type="java.lang.String" />
+		<property name="userClass" column="UCLASS"  type="java.lang.String" />
+		<property name="userPhone" column="UPHONE"  type="java.lang.String" />
+		<property name="userEmail" column="UEMAIL"  type="java.lang.String" />
+		<property name="userIntroduce" column="UINTRODUCE"  type="java.lang.String" />
+		
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>物联网体系结构与应用实验室人员相册</title>
+		<style type="text/css">
+			body{
+				background-color: #eee;
+			}
+			.container{
+				width: 960px;
+				height: 450px;
+				margin: 60px auto;
+				position: relative;
+			}
+			img{
+				width: 250px;
+			 	height: 200px;
+			 	padding: 10px 10px 15px;
+			 	background-color: white;
+			 	/*border: 1px solid #ddd;*/
+			 	position: absolute;
+			 	z-index: 1;
+			}
+			img:hover{
+				-webkit-transform: rotate(0deg);/*倾斜度,-webkit是chrome，safari浏览器的前缀*/
+			 	-moz-transform: rotate(0deg);/*-moz是firefox的前缀*/
+			 	transform: rotate(0deg);
+			 	transition: 0.5s;
+			 	transform: scale(1.2);
+			 	box-shadow: 10px 10px 15px #ccc;/*阴影:左右 上下 大小 颜色*/
+			 	z-index: 2;
+			}
+			.picture1{
+				top: 50px;
+				left: 200px;
+				-webkit-transform: rotate(-5deg);/*倾斜度,-webkit是chrome，safari浏览器的前缀*/
+			 	-moz-transform: rotate(-5deg);/*-moz是firefox的前缀*/
+			 	transform: rotate(-5deg);
+			}
+			.picture2{
+				top: 50px;
+				left: 350px;
+				-webkit-transform: rotate(5deg);/*倾斜度,-webkit是chrome，safari浏览器的前缀*/
+			 	-moz-transform: rotate(5deg);/*-moz是firefox的前缀*/
+			 	transform: rotate(5deg);
+			}
+			.picture3{
+				top: 300px;
+				left: 200px;
+				-webkit-transform: rotate(25deg);/*倾斜度,-webkit是chrome，safari浏览器的前缀*/
+			 	-moz-transform: rotate(25deg);/*-moz是firefox的前缀*/
+			 	transform: rotate(25deg);
+			}
+			.picture4{
+				top: 300px;
+				left: 500px;
+				-webkit-transform: rotate(45deg);/*倾斜度,-webkit是chrome，safari浏览器的前缀*/
+			 	-moz-transform: rotate(45deg);/*-moz是firefox的前缀*/
+			 	transform: rotate(45deg);
+			}
+			.picture5{
+				top: 170px;
+				left: 650px;
+				-webkit-transform: rotate(-25deg);/*倾斜度,-webkit是chrome，safari浏览器的前缀*/
+			 	-moz-transform: rotate(-25deg);/*-moz是firefox的前缀*/
+			 	transform: rotate(-25deg);
+			}
+			.picture6{
+				top: 70px;
+				left: 0px;
+				-webkit-transform: rotate(-35deg);/*倾斜度,-webkit是chrome，safari浏览器的前缀*/
+			 	-moz-transform: rotate(-35deg);/*-moz是firefox的前缀*/
+			 	transform: rotate(-35deg);
+			}
+		</style>
+	</head>
+	<body>
+		<h3>实验室相册</h3>
+		<hr>
+		<div class="container">
+			<img class="picture1" src="../img/labintroduceimg/guangge.jpg" />
+			<img class="picture2" src="../img/labintroduceimg/ganzejun.jpg" />
+			<img class="picture3" src="../img/labintroduceimg/huangjiamei.jpg" />
+			<img class="picture4" src="../img/labintroduceimg/leizixian.jpg" />
+			<img class="picture5" src="../img/labintroduceimg/wangzhili.jpg" />
+			<img class="picture6" src="../img/labintroduceimg/wuxiaona.jpg" />
+		</div>
+	</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>实验室简介</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			a{text-decoration: none;color: black;display: block;}
+			li{list-style: none;}
+		 	body{
+					width: 100%;
+					height: auto;
+				}
+				/*页面整体*/
+			.main{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				/*background-image: url(img/xkd.jpg);*/
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				background-color: #F2F2F2;
+				
+				/*-webkit-filter: blur(1px);*/
+	            /*-moz-filter: blur(1px);*/
+	            /*-o-filter: blur(1px);
+	            -ms-filter: blur(1px);*/
+	            /*filter: blur(1px);*/
+			}
+			/*导航*/
+			.header{
+				width: 100%;
+				height: 100px;
+				text-align: center;
+				font-size: 24px;
+				background-color: beige;
+			}
+			/*页面主体*/
+			.center{
+				width: cale(100% - 400px);
+				padding-left: 200px;
+				padding-right: 200px;
+				height: calc(100% - 120px);
+				/*background-color: #f2f2f2;*/
+				padding-top: 20px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.center_item{
+				width: calc(100% - 12px);
+				height: calc(100% - 7px);
+				/*background-color: white;*/
+				padding: 5px 5px 0 5px;
+				border: 1px solid gray;
+			}
+			/*左侧菜单*/
+			.menu{
+				width: 248px;
+				/*height:calc(100% - 22px) ;*/
+				padding-top: 20px;
+				margin-left: auto;
+				margin-right: auto;
+				/*border: 1px solid white;*/
+				float: left;
+			}
+			.menu_title{
+				margin-left: 20px;
+			}
+			.menu_items{
+				margin-top: 20px;
+				}
+			.items{
+				font-size: 30px;
+				line-height: 50px;
+			}
+			.items li{
+				padding-left: 30px;
+			}
+			.item{
+				margin-top: 20px;
+				font-size:18px;
+				
+			}
+			.active{
+				display: block;
+				border-radius: 3px;
+				background: url(img/icon.jpg) 10px center no-repeat;
+				background-size: 20px 20px;
+				text-indent: 5px;
+			}
+			.active:hover{
+				background-color: lightgray;
+			}
+			.introduce{background-color: #C0C0C0;}
+			/*右侧*/
+			.detail{
+				width: calc(100% - 260px);
+				height: 100%;
+				padding:0 5px 0 5px;
+				float: left;
+			}
+			
+			.fl{float: left;}
+			.line{
+				height:1px;
+				width:100%;
+				background-color: #494A5F;
+				margin-top: 10px;
+			}
+			iframe{
+				border: none;
+				border-left:1px solid #312E3D;
+				-webkit-overflow-scrolling: n;
+			}
+		</style>
+		<script type="text/javascript">
+		   var selected = function(a){
+		   	var selects = document.getElementsByClassName('active');
+		   		selects[a].style.backgroundColor='#C0C0C0';
+		   		for(var i=0;i<selects.length;i++){
+		   			if(i!=a){
+		   				selects[i].style.backgroundColor='#F2F2F2';
+		   			}
+		   		}
+		   }
+		</script>
+	</head>
+	<body>
+		<div class="main">
+			<!--<div class="header">导航</div>-->
+			<div class="center">
+				<div class="center_item">
+				<div class="menu">
+					<h2 class="menu_title">实验室简介</h2>
+					<div class="line"></div>
+					<div class="menu_items">
+						<ul class="items">
+							<li class="introduce active" onclick="selected(0)"><a id="default" href="introduce.html" target="myframe"><span class="item">&nbsp;实验室概况</span></a></li>
+							<li class="direct active" onclick="selected(1)"><a href="direct.html" target="myframe"><span class="item">&nbsp;实验室方向</span></a></li>
+							<li class="picture active" onclick="selected(2)"><a href="picture.html" target="myframe"><span class="item">&nbsp;相册</span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="detail">
+					  <iframe src="introduce.html" name="myframe" width="100%" height="100%" ></iframe>
+				</div>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

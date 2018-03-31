@@ -8,12 +8,15 @@
 
 	<package name="default" namespace="/" extends="struts-default">
 
-		<action name="UserInfo_*" class="action.UserInfoAction"
-			method="{1}">
+		<action name="UserInfo_*" class="action.UserInfoAction" method="{1}">
 			<result name="success">jsp/joinus.jsp</result>
 		</action>
 
 		<action name="Equipment_*" class="action.EquipmentAction"
+			method="{1}">
+		</action>
+
+		<action name="Message_*" class="action.MessageAction"
 			method="{1}">
 		</action>
 

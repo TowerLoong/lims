@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="dao.pojo">
+
+	<class name="Admin" table="admin">
+
+		<id name="adminId" type="java.lang.Integer">
+			<column name="ID"></column>
+			<generator class="native" />
+		</id>
+
+		<property name="adminName" type="java.lang.String">
+			<column name="ADMINNAME"></column>
+		</property>
+
+		<property name="adminPassword" type="java.lang.String">
+			<column name="PASSWORD"></column>
+		</property>
+
+	</class>
+
+</hibernate-mapping>

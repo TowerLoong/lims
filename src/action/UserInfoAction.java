@@ -17,6 +17,10 @@ public class UserInfoAction implements ModelDriven<UserInfo>{
 	       return userInfo;
 	}
 	
+	/**
+	 * 保存申请信息的
+	 * @return
+	 */
 	public String saveUserInfo(){
 		
 		UserInfoService userInfoService = new UserInfoService();

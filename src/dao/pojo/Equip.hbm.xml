@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="dao.pojo">
+
+	<class name="Equip" table="equip">
+
+		<id name="equipId" type="java.lang.Integer">
+			<column name="ID"></column>
+			<generator class="native" />
+		</id>
+
+		<property name="equipName" type="java.lang.String">
+			<column name="EQUIPNAME"></column>
+		</property>
+
+		<property name="equipNum" type="java.lang.Integer">
+			<column name="EQUIPNUM"></column>
+		</property>
+
+	</class>
+
+</hibernate-mapping>

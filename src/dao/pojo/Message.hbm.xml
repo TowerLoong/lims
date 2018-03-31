@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="dao.pojo">
+
+	<class name="Message" table="message">
+
+		<id name="mesId" type="java.lang.Integer">
+			<column name="ID"></column>
+			<generator class="native" />
+		</id>
+
+		<property name="mesContent" type="java.lang.String">
+			<column name="MESCONTENT"></column>
+		</property>
+
+		<many-to-one name="admin" class="Admin" column="ADMIN_ID"></many-to-one>
+
+	</class>
+
+</hibernate-mapping>

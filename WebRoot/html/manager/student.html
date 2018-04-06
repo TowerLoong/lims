@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/manager.css" />
+		
+	</head>
+	<body>
+		<div id="teacher">
+			<div class="list_teacher">
+				<div class="btn_add">
+					<button value="add" onclick="addItem()">添加</button>
+				</div>
+				<table id="tbl_tacher" cellpadding="0" cellspacing="0">
+					<tr>
+						<th>编号</th>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>学位</th>
+						<th>电话</th>
+						<th>邮箱</th>
+						<th>操作</th>
+					</tr>
+				</table>
+			</div>
+			<div class="change_student changeItems">
+					<span>编辑个人信息</span>
+					<a href="javascript:void(0)" onclick="closeEdit()">x</a>
+					<div class="edit_form">
+						<div class="form_item">
+							<label>姓名：</label>
+							<input type="text" name="name" class="items_name" >
+						</div>
+						<div class="form_item">
+							<label>性别：</label>
+							<input type="text" name="sex" class="item_sex" >
+						</div>
+						<div class="form_item">
+							<label>学位：</label>
+							<input type="text" name="profession" class="item_profession" >
+						</div>
+						<div class="form_item">
+							<label>电话：</label>
+							<input type="text" name="number" class="item_number" >
+						</div>
+						<div class="form_item">
+							<label>邮箱：</label>
+							<input type="text" name="introduce" class="item_introduce" >
+							<!--<textarea name="introduce" maxlength="100" spellcheck="true" class="item_introduce"></textarea>-->
+						</div>
+						<div class="form_btn">
+							<button class="btn_submit">确认</button>
+							<button onclick="closeEdit()">取消</button>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script type="text/javascript">
+			var hidden = document.createElement('div');
+			hidden.className = 'coverElement';
+			var rowIndex;//点击行数
+			//得到修改编辑里的输入框
+			var nameInput = document.getElementsByClassName("items_name")[0];
+			var sexInput = document.getElementsByClassName("item_sex")[0];
+			var professionInput = document.getElementsByName("profession")[0];
+			var numberInput = document.getElementsByName("number")[0];
+			var introduceInput = document.getElementsByName("introduce")[0];
+			function addItem(){
+				document.getElementsByClassName("btn_submit")[0].onclick = addSubmit;//将提交事件改为添加
+				document.body.appendChild(hidden);//遮住其他部分
+				document.getElementsByClassName("change_student")[0].style.display = "block";//显示编辑框
+				nameInput.value = '';
+				sexInput.value = '';
+				professionInput.value = '';
+				numberInput.value = '';
+				introduceInput.value = '';
+			}
+			function addSubmit(){
+				var table = document.getElementById("tbl_tacher");
+				var newId = table.children.length;//table的children除了tr外还有个tbody故不用减一
+				//添加数据
+				var tr = document.createElement('tr');
+				table.appendChild(tr);
+				var tds = new Array();
+				for(var i=0;i<7;i++){
+					var td = document.createElement('td');
+					tds.push(td);
+				};
+				tds[0].innerHTML = newId;
+				tds[1].innerHTML = nameInput.value;
+				tds[2].innerHTML = sexInput.value;
+				tds[3].innerHTML = professionInput.value;
+				tds[4].innerHTML = numberInput.value;
+				tds[5].innerHTML = introduceInput.value;
+				tds[6].innerHTML = '<a href="javascipt:void(0)" onclick="changeItem(this)">修改</a><a href="javascipt:void(0)" onclick="deleteItem(this)">删除</a>';
+				for(var j=0;j<7;j++){
+					tr.appendChild(tds[j]);
+				}
+				closeEdit();//关闭编辑框
+			}
+			function changeItem(item){
+				document.getElementsByClassName("btn_submit")[0].onclick = changeSubmit;//将提交事件改为修改
+				document.body.appendChild(hidden);//遮住其他部分
+				//得到当前点击的行中的td
+				var tds = item.parentNode.parentElement.children;//点击行的每一项
+				rowIndex = item.parentNode.parentNode.rowIndex;//点击的行数
+				
+				//输入框里的默认value值为之前的值
+				nameInput.value = tds[1].innerHTML;
+				sexInput.value = tds[2].innerHTML;
+				professionInput.value = tds[3].innerHTML;
+				numberInput.value = tds[4].innerHTML;
+				introduceInput.value = tds[5].innerHTML;
+				document.getElementsByClassName("change_student")[0].style.display = "block";//显示编辑框
+			};
+			function changeSubmit(){
+				var myTds = document.getElementById("tbl_tacher").rows[rowIndex].cells;
+				myTds[1].innerHTML = nameInput.value;
+				myTds[2].innerHTML = sexInput.value;
+				myTds[3].innerHTML = professionInput.value;
+				myTds[4].innerHTML = numberInput.value;
+				myTds[5].innerHTML = introduceInput.value;
+				closeEdit();
+				
+			};
+			function deleteItem(item){
+				var myTable = document.getElementById("tbl_tacher");
+				var deleteRow = item.parentNode.parentNode;
+				myTable.removeChild(deleteRow);
+			};
+			function closeEdit(){
+				document.getElementsByClassName("change_student")[0].style.display = "none";
+				document.body.removeChild(hidden);
+			};
+			
+			
+			var datas =[
+			{
+				id:1,
+				name:'李鹏',
+				sex:'男',
+				profession:'本科大三',
+				num:'1556465465',
+				email:'1290271715@qq.com',
+				
+			},{
+				id:2,
+				name:'杜志丽',
+				sex:'女',
+				profession:'本科大三',
+				num:'1654221464',
+				email:'1290271715@qq.com',
+			},
+			{
+				id:3,
+				name:'张佩怡',
+				sex:'女',
+				profession:'本科大三',
+				num:'1654221464',
+				email:'1290271715@qq.com',
+			},
+			{
+				id:4,
+				name:'陶文龙',
+				sex:'男',
+				profession:'本科大三',
+				num:'1654221464',
+				email:'1290271715@qq.com',
+			}
+			];
+			var table = document.getElementById('tbl_tacher');
+			datas.forEach(function(item,index){
+				
+				var tr = document.createElement('tr');
+				table.appendChild(tr);
+				var tds = new Array();
+				for(var i=0;i<7;i++){
+					var td = document.createElement('td');
+					tds.push(td);
+				};
+				tds[0].innerHTML = item.id;
+				tds[1].innerHTML = item.name;
+				tds[2].innerHTML = item.sex;
+				tds[3].innerHTML = item.profession;
+				tds[4].innerHTML = item.num;
+				tds[5].innerHTML = item.email;
+				tds[6].innerHTML = '<a href="javascipt:void(0)" onclick="changeItem(this)">修改</a><a href="javascipt:void(0)" onclick="deleteItem(this)">删除</a>';
+				for(var j=0;j<7;j++){
+					tr.appendChild(tds[j]);
+				}
+			})
+		</script>
+	</body>
+</html>

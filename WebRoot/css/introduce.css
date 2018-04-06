@@ -1,0 +1,111 @@
+/*实验室介绍*/
+body,html{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.introduce_detail{
+	width: 100%;
+	height: calc(100% - 35px);
+}
+.introduce_nav{
+	width: 100%;
+	background-color: #93999F;	
+	height: 30px;
+}
+.introduce_title{
+	width: 800px;
+	margin: auto;
+}
+.introduce_title a{
+	line-height: 30px;
+	margin:0 10px ;
+	font-size: 10px;
+	color: white;
+	text-decoration: none;
+}
+.introduce_title a:hover{
+	text-decoration:underline ;
+}
+.lab_common{
+	width: 800px;
+	margin: auto;
+}
+/*实验室简介*/
+.lab_introduce img{
+	width: 800px;
+}
+/*研究方向*/
+.lab_direct h2{
+	margin: 5px 0;
+}
+.lab_direct p{
+	font-family: "微软雅黑";
+	margin: 5px 0;
+	font-size: 20px;
+	background: url(../img/introduceimg/tag.png) 0 center no-repeat;
+	background-size: 20px;
+	text-indent: 22px;
+}
+.lab_direct  span{
+	font-family: "微软雅黑";
+	font-size: 20px;
+}
+/*科研成果*/
+.product_title{
+	width: 100%;
+	height: 80px;
+	border-bottom: 1px solid #F3F5F7;
+}.product_title h3{
+	font-weight: 100;
+	margin: 0;
+	width: 116px;
+	line-height: 80px;
+	border-bottom: 1px solid black;
+	font-family: "微软雅黑";
+}
+.lab_product{
+	margin-top: 15px;
+	height: 500px;
+}
+.lab_product span{
+	font-size: 1em;
+}
+.lab_product2 span{
+	font-size: 1em;
+}
+.producu_list{
+	display: block;
+	padding: 0 20px;
+}
+.producu_list li{
+	margin-left: 50px;
+	margin-top: 25px;
+	width: 180px;
+	height: 180px;
+	float: left;
+}
+.producu_list li img{
+	width: 180px;
+	height: 150px;
+}
+.producu_list li a{
+	display: block;
+	margin-top: -4px;
+	width: 180px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #6495ED;
+	color: white;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.producu_list li a:hover{
+	background-color: #1161EE;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/manager.css" />
+		<script>
+			function edit(){
+				document.getElementsByClassName('edit_user')[0].style.display="block";
+				var hidden = document.createElement('div');
+				hidden.className = 'coverElement';
+				document.body.appendChild(hidden);
+			}
+			function exitEdit(){
+				document.getElementsByClassName('edit_user')[0].style.display="none";
+				var hidden = document.getElementsByClassName('coverElement')[0];
+				document.body.removeChild(hidden);
+			}
+			function formSubmit(){
+				var userNameInput = document.getElementsByClassName('edit_user')[0].getElementsByClassName('user_name')[0];
+				var userNumberInput = document.getElementsByClassName('edit_user')[0].getElementsByClassName('user_number')[0];
+				var userEmailInput = document.getElementsByClassName('edit_user')[0].getElementsByClassName('user_email')[0];
+				var userSignatureInput = document.getElementsByClassName('edit_user')[0].getElementsByClassName('user_signature')[0];
+				var userNameShow = document.getElementsByClassName('info-wapper')[0].getElementsByClassName('user_name')[0];
+				var userNumberShow = document.getElementsByClassName('info-wapper')[0].getElementsByClassName('user_number')[0];
+				var userEmailShow = document.getElementsByClassName('info-wapper')[0].getElementsByClassName('user_email')[0];
+				var userSignatureShow = document.getElementsByClassName('info-wapper')[0].getElementsByClassName('user_signature')[0];
+				document.getElementsByClassName('person_name')[0].getElementsByTagName('p')[0].innerHTML = userNameInput.value;//左上角昵称
+				userNameShow.innerHTML = userNameInput.value;//昵称
+				userNumberShow.innerHTML = userNumberInput.value;//电话
+				userEmailShow.innerHTML = userEmailInput.value;//密码
+				userSignatureShow.innerHTML = userSignatureInput.value;//个性签名
+				exitEdit();
+			}
+		</script>
+	</head>
+	<body>
+		<div id="personal_set">
+			<div class="person_left">
+				<div class="person_img">
+					<img src="../../img/indexpageimg/6.jpg" />
+					<div class="person_name">
+						<p>木子月月鸟</p>
+					</div>
+				</div>
+				<div class="person_set">
+					<h2>账号户管理</h2>
+					<div class="line"></div>
+					<ul>
+						<li><a href="javascript:void(0)"  onclick="">个人信息</a></li>
+						<li><a href="javascript:void(0)" onclick="">收件地址</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="person_right">
+				<div class="common_title">个人信息
+					<a href="javascript:void(0)"  class="edit" onclick="edit()"><i class="icon-note"></i>编辑</a>
+				</div>
+				<div class="edit_user">
+					<span>编辑个人信息</span>
+					<a href="javascript:void(0)" onclick="exitEdit()">x</a>
+					<div class="edit_form">
+						<div class="form_item">
+							<label>昵称：</label>
+							<input type="text" name="name" class="user_name" >
+						</div>
+						<div class="form_item">
+							<label>电话：</label>
+							<input type="text" name="number" class="user_number" >
+						</div>
+						<div class="form_item">
+							<label>邮箱：</label>
+							<input type="text" name="email" class="user_email" >
+						</div>
+						<div class="form_item">
+							<label>个性签名：</label>
+							<textarea rows="4" cols="24" maxlength="30" spellcheck="true" class="user_signature"></textarea>
+						</div>
+						<div class="form_btn">
+							<button onclick="formSubmit()">确认</button>
+							<button onclick="exitEdit()">取消</button>
+						</div>
+					</div>
+				</div>
+				<div class="line1"></div>
+				<div class="info-wapper">
+					<div class="info-box clearfix">
+						<label class="pull-left">昵称</label>
+						<div class="pull-left user_name">木子月月鸟</div>
+					</div>
+					<div class="info-box clearfix ">
+						<label class="pull-left">电话</label>
+						<div class="pull-left user_number">18281573992</div>
+					</div>
+					<div class="info-box clearfix">
+						<label class="pull-left">邮箱</label>
+						<div class="pull-left user_email">1290271715</div>
+					</div>
+					<div class="info-box clearfix">
+						<label class="pull-left">个性签名</label>
+						<div class="pull-left user_signature">1290271715</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

@@ -31,6 +31,9 @@ q:before,q:after {
 abbr,acronym {
 	border: 0;
 }
+iframe{
+	border: none;
+}
 /*字体样式问题*/
 body {
 	color: #666;
@@ -50,7 +53,9 @@ body {
 .clearfix {
 	zoom: 1;
 }
-
+.clear{
+	clear: both;
+}
 
 /* 图片展示 */
 .poster-main {
@@ -82,11 +87,11 @@ body {
 }
 .poster-main .poster-prev-btn {
 	left: 0;
-	background: url(img/btn_l.png) no-repeat center center;
+	background: url(../img/indexpageimg/btn_l.png) no-repeat center center;
 }
 .poster-main .poster-next-btn {
 	right: 0;
-	background: url(img/btn_r.png) no-repeat center center;
+	background: url(../img/indexpageimg/btn_r.png) no-repeat center center;
 }
 .J_Poster {
 	margin: 10px auto;
@@ -96,23 +101,28 @@ body {
 /*信息列表*/
 .infomain {
 	position: relative;
-	min-height: 250px;
-	width: 80%;
+	min-height: 270px;
+	width: 1200px;
 	margin: 0 auto;
 	margin-top: 100px;
 }
 .news {
-	width: 33%;
+	width: 360px;
+	min-height: 270px;
 	border: 1px solid rgb(123, 164, 255);
+	overflow: hidden;
 }
 .study {
-	width: 40%;
+	width: 480px;
+	min-height: 270px;
 	border: 1px solid rgb(123, 164, 255);
 	margin: 0 7px;
 }
 .ques {
-	width: 22%;
+	min-height: 270px;
+	width: 330px;
 	border: 1px solid rgb(123, 164, 255);
+	overflow: hidden;
 }
 .news, .study, .ques {
 	
@@ -148,7 +158,7 @@ body {
 	width: 40%;
 	height: 100px;
 	float: left;
-	margin: 0 10px;
+	margin-left:10px;
 }
 .picnews a, .studypic a {
 	color: #C00;
@@ -168,8 +178,12 @@ body {
 	width: 100%;
 	float: left;
 }
+.titleques{
+	height: 40px;
+	margin-bottom: 10px;
+}
 .listnews li, .queslist li {
-	background: url(img/list.jpg) no-repeat;
+	background: url(../img/indexpageimg/list.jpg) no-repeat;
 	padding-left: 10px;
 	margin: 8px;
 	border-bottom: 1px dotted #CCC;
@@ -189,14 +203,22 @@ body {
 	float: right;
 }
 .studypic {
+	width: 460px;
 	height: 120px;
 	padding-top: 37px;
 	line-height: 20px;
 }
+.studypic img{
+	display: block;
+}
+.studyInfo{
+	float: right;
+	width: 250px;
+}
 .studytype {
 	width: 80%;
 	height: 37px;
-	background: url(img/study_type_bg.jpg) no-repeat;
+	background: url(../img/indexpageimg/study_type_bg.jpg) no-repeat;
 	margin: 15px auto;
 }
 .studytype li {
@@ -205,11 +227,15 @@ body {
 	margin: 0 15px;
 	text-align: center;
 }
-
+#fade{
+	height:calc(100% - 140px);
+	overflow: hidden;
+}
 
 /*底部*/
 .footer {
 	width: 100%;
+	height: 80px;
 	text-align: center;
 	background-color: #D4D4D4;
 	line-height: 30px;

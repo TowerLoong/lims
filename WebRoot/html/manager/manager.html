@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管理员</title>
+		<link rel="stylesheet" href="../../css/manager.css" />
+		<script>
+			var showMenu = function(){
+				var dt = document.getElementById('person');
+				var dd = dt.nextElementSibling;
+//				console.log(dd);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="manager">
+			<!--<div id="header">
+				<img src="../../img/manager/logo.png" alt="logo">
+				<div class="header_nav">
+					<span>欢迎您 king</span>
+					<a href="../index.html">首页</a>
+					<div class="btn_set">
+						<button value="setMyMessage">个人设置</button>
+					</div>
+				</div>
+			</div>-->
+			<div class="manager_tree">
+				<ul class="tree">
+					<span>管理员</span>
+					<li id="person" onclick="showMenu()"><strong>人员管理</strong>
+						<ul>
+							<li><a href="teacher.html" target="myframe2">教师列表</a></li>
+							<li><a href="student.html" target="myframe2">学生列表</a></li>
+						</ul>
+					</li>
+					<li><strong>物资管理</strong>
+						<ul>
+							<li><a href="supplise.html" target="myframe2">物资详情</a></li>
+						</ul>
+					</li>
+					<li><strong><a href="">收件箱</a></strong></li>
+				</ul>
+			</div>
+			<div id="manager_detail">
+				<iframe src="teacher.html" name="myframe2" width="100%" height="100%"></iframe>
+			</div>
+		</div>
+	</body>
+</html>

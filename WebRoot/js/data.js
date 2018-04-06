@@ -14,28 +14,28 @@ var data = [
 		"content":"黎茂峰老师，阿伯泰.邓迪大学信息技术工学硕士，中国工程物理研究院无线电物理理学在读博士，西南科技大学计算机科学与技术学院信息媒体系主任。主要研究方向为语义计算、智能计算、网络结构与数字内容管理。"
 	},
 	{
-		"img":"王庆凤.png",
+		"img":"wangqinfeng.png",
 		"desc":"关于此人的描述",
 		"name":"王庆凤",
 		"title":"教师",
 		"content":"实验室老师"
 	},
 	{
-		"img":"蔡德琛.png",
+		"img":"caidechan.png",
 		"desc":"关于此人的描述",
 		"name":"蔡德琛",
 		"title":"本科生",
 		"content":"实验室大二成员"
 	},
 	{
-		"img":"唐礼科.jpg",
+		"img":"tanglike.jpg",
 		"desc":"关于此人的描述",
 		"title":"硕士",
 		"content":"实验室大二成员",
 		"name":"唐礼科"
 	},
 	{
-		"img":"黄俊.png",
+		"img":"huangjun.png",
 		"desc":"关于此人的描述",
 		"title":"硕士",
 		"content":"实验室研究生",

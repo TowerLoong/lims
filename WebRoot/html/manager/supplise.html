@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../css/manager.css" />
+		
+	</head>
+	<body>
+		<div id="teacher">
+			<div class="list_teacher">
+				<div class="btn_add">
+					<button value="add">添加</button>
+				</div>
+				<table id="tbl_goods" cellpadding="0" cellspacing="0">
+					<tr>
+						<th>编号</th>
+						<th>物品名称</th>
+						<th>数量</th>
+						<th>操作</th>
+					</tr>
+				</table>
+			</div>
+			<div class="change_goods changeItems">
+					<span>编辑个人信息</span>
+					<a href="javascript:void(0)" onclick="closeEdit()">x</a>
+					<div class="edit_form">
+						<div class="form_item">
+							<label>物品名称：</label>
+							<input type="text" name="name" class="items_name" >
+						</div>
+						<div class="form_item">
+							<label>数量：</label>
+							<input type="text" name="num" class="item_num" >
+						</div>
+						<div class="form_btn">
+							<button onclick="changeSubmit()">确认</button>
+							<button onclick="closeEdit()">取消</button>
+						</div>
+					</div>
+				</div>
+		</div>
+		<script type="text/javascript">
+			var hidden = document.createElement('div');
+			hidden.className = 'coverElement';
+			var rowIndex;//点击行数
+			//得到修改编辑里的输入框
+			var nameInput = document.getElementsByClassName("items_name")[0];
+			var numInput = document.getElementsByClassName("item_num")[0];
+			function changeItem(item){
+				document.body.appendChild(hidden);//遮住其他部分
+				//得到当前点击的行中的td
+				var tds = item.parentNode.parentElement.children;//点击行的每一项
+				rowIndex = item.parentNode.parentNode.rowIndex;//点击的行数
+				
+				//输入框里的默认value值为之前的值
+				nameInput.value = tds[1].innerHTML;
+				numInput.value = tds[2].innerHTML;
+				document.getElementsByClassName("change_goods")[0].style.display = "block";//显示编辑框
+			};
+			function changeSubmit(){
+				var myTds = document.getElementById("tbl_goods").rows[rowIndex].cells;
+				myTds[1].innerHTML = nameInput.value;
+				myTds[2].innerHTML = numInput.value;
+				closeEdit();
+			};
+			function deleteItem(item){
+				var myTable = document.getElementById("tbl_goods");
+				var deleteRow = item.parentNode.parentNode;
+				myTable.removeChild(deleteRow);
+			};
+			function closeEdit(){
+				document.getElementsByClassName("change_goods")[0].style.display = "none";
+				document.body.removeChild(hidden);
+			};
+			var datas =[
+			{
+				id:1,
+				name:'电脑',
+				num:18,
+			},{
+				id:2,
+				name:'电视',
+				num:2,
+			},
+			{
+				id:3,
+				name:'冰箱',
+				num:3,
+			},
+			{
+				id:4,
+				name:'服务器',
+				num:1,
+			},
+			{
+				id:5,
+				name:'投影仪',
+				num:3,
+			},
+			{
+				id:6,
+				name:'打印机',
+				num:2,
+			},
+			{
+				id:7,
+				name:'沙发',
+				num:1,
+			}
+			];
+			var table = document.getElementById('tbl_goods');
+			datas.forEach(function(item,index){
+				
+				var tr = document.createElement('tr');
+				table.appendChild(tr);
+				var tds = new Array();
+				for(var i=0;i<4;i++){
+					var td = document.createElement('td');
+					tds.push(td);
+				};
+				tds[0].innerHTML = item.id;
+				tds[1].innerHTML = item.name;
+				tds[2].innerHTML = item.num;
+				tds[3].innerHTML = '<a href="javascipt:void(0)" onclick="changeItem(this)">修改</a><a href="javascipt:void(0)" onclick="deleteItem(this)">删除</a>';
+				for(var j=0;j<4;j++){
+					tr.appendChild(tds[j]);
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -23,8 +23,7 @@ public class MessageAction implements ModelDriven<Message>{
 	 * @param message
 	 * @return
 	 */
-	public void saveMessage(){
-		
+	public void saveMessage(){	
 		messageServicec = new MessageService();
 		messageServicec.saveMessage(message);
 		

@@ -1,0 +1,214 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+h1,h2,p{
+	padding: 0;
+	margin: 0;
+}
+ul,li{
+	list-style:none;
+	padding: 0;
+	margin: 0;
+	
+}
+li,a{
+	color: #000000;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+.newsMain{
+	width: 990px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+/*左边消息列表*/
+.newsList{
+	width: 740px;
+	float: left;
+}
+.newsList ul{
+	padding: 15px 20px 20px 0;
+
+}
+.newsList ul li{
+	padding: 15px 10px 15px 10px;
+	clear: both;
+    border-top: 1px dotted white;
+    border-bottom: 1px dotted #BBBBBB;
+}
+.newsList ul li:hover{
+	background-color: #F3F5F7;
+	margin-left: 2px;
+}
+.newsList p{
+	color: #777;
+    font-size: 0.8em;
+    padding: 5px;
+    line-height: 160%;
+}
+.newsDate{
+	width: 50px;
+    float: left;
+    margin: 0 20px 0 0;
+}
+.newsDate h1{
+	height: 46px;
+    line-height: 46px;
+    text-align: center;
+    overflow: hidden;
+    width: 54px;
+    white-space: nowrap;
+    float: left;
+    font-size: 46px;
+    color: #555;
+    font-family: 'Times New Roman', Times, serif;
+}
+.newsDate p{
+	clear: both;
+    display: block;
+    width: 54px;
+    height: 1.2em;
+    line-height: 1.2em;
+    text-align: left;
+    overflow: hidden
+}
+.newsText{
+	float:left ;
+    width: 520px;
+    margin-left: 25px;
+}
+.newsText_title{
+	color: #000;
+    font-size: 18px;
+    font-weight: bold;
+}
+.newsText a{
+	color: #000000;
+}
+.newsText a:hover{
+	color: red;
+	text-decoration: underline;
+}
+.clear{
+	clear: both;
+}
+.blank{
+	height: 30px;
+}
+.page span{
+	    color: #FFFFFF;
+    display: block;
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    float: right;
+    padding: 0px 8px;
+    background: #5198B6;
+    margin: 0px 3px 0px 0px;
+    font-size: 0.8em;
+    border-radius: 3px 3px 3px 3px;
+}
+.page a{
+	display: block;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    float: left;
+    padding: 0px 8px;
+    border: 1px solid #5198B6;
+    border-radius: 3px 3px 3px 3px;
+    text-decoration: none;
+    margin: 0px 3px 0px 0px;
+    color: #5198B6;
+    font-size: 0.8em;
+}
+.page a:hover{
+	text-decoration: underline;
+}
+/*右边消息导航*/
+.newsNav{
+	width: 240px;
+	float: right;
+}
+.list_2{
+	clear: both;
+    padding-top: 15px;
+}
+.list_2 li{
+	border-bottom: 1px dotted #BBB;
+    padding: 15px 0;
+}
+.list_2 li a{
+	font-size: 0.75em;
+    color: #999;
+}
+/*第一次例会*/
+.c_h1{
+	height: 120px;
+    /*background: url(../images/t_1.png) repeat-x top center;*/
+    color: #000;
+    margin-top: 15px;
+    clear: both;
+}
+.c_h1 div{
+	width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.c_h1 h1{
+	font-size: 1.4em;
+    border-bottom: 1px solid #666;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+    font-weight: normal;
+}
+.c_h1 p{
+	font-size: 1.0em;
+    height: 50px;
+    line-height: 50px;
+    clear: both;
+    text-transform: capitalize;
+}
+.t_tools{
+	float: right;
+    padding: 0px 15px;
+    background: #eee;
+    text-align: right;
+    font-size: 1.0em;
+}
+
+.w_set{
+	width: 990px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    position: relative;
+}
+.content{
+	padding: 20px 10px;
+    margin: 0px;
+    line-height: 180%;
+    clear: both;
+    padding-bottom: 20px;
+    font-size: 14px;
+
+}
+#content_text img {
+    max-width: 98%;
+    overflow: hidden;
+}
+.return{
+	text-align: center;
+	font-size: 12px;
+	color: red;
+}
+.return a{
+	color: #5198B6;
+}

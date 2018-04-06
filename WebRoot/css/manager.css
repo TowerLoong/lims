@@ -1,0 +1,433 @@
+html,body{
+	width: 100%;
+	height:100%;
+	margin: 0;
+	padding: 0;
+}
+ul{
+	padding: 0;
+	margin: 0;
+}
+/*头部*/
+#header{
+	width: 100%;
+	height: 100px;
+	background-color: #F5F5DC;
+}
+#header img{
+	margin: 5px 0 0 50px;
+}
+.header_nav{
+	width: 400px;
+	height: 30px;
+	margin-top: 35px;
+	margin-right: 200px;
+	float: right;
+	text-align: right;
+}
+.header_nav span{
+	font-weight: bold;
+	margin-right: 20px;
+}
+.header_nav a{
+	text-decoration: none;
+	color: black;
+	margin-right: 20px;
+}
+.btn_set{
+	float: right;
+}
+/*主体*/
+#manager{
+	width: 100%;
+	height: 100%;
+}
+.manager_tree{
+	width: 210px;
+	height: 100%;  
+	float: left;  
+	background-color: gray;
+}
+.manager_tree ul span{
+	line-height: 30px;
+	font-weight: 400;
+	text-indent: 10px;
+	display: block;
+	height: 30px;
+	background-color: lightgray;
+}
+.manager_tree ul li{
+	list-style: none;
+	text-indent: 15px;
+	color: white;
+}
+.manager_tree ul li strong{
+	padding: 10px;
+	display: block;
+}
+.manager_tree ul li strong a{
+	text-decoration: none;
+	color: white;
+	display: block;
+}
+.manager_tree ul li strong:hover{
+	background-color: cornflowerblue;
+}
+.manager_tree ul li:hover ul{
+	display: block;
+}
+.manager_tree ul li ul{
+	display: none;
+}
+.manager_tree ul li ul li a{
+	color: white;
+	display: block;
+	padding-left: 15px;
+	line-height: 30px;
+	text-decoration: none;
+}
+.manager_tree ul li ul li a:hover{
+	background-color: cornflowerblue;
+}
+/*右边*/
+#manager_detail{
+	width: calc(100% - 210px);
+	height: 100%;
+	float: right;
+}
+#manager_detail iframe{
+	border: none;
+}
+
+/*个人信息设置*/
+#personal_set{
+	width: 100%;
+	margin: 0 auto;
+	
+}
+.person_left{
+	width: 216px;
+	float: left;
+	background-color: #f8fafc;
+}
+.person_img{
+	padding: 32px 0 24px;
+}
+.person_img img{
+	display: block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	margin: 0 auto;
+}
+.person_name{
+	font-size: 16px;
+	text-align: center;
+}
+.person_name p{
+	line-height: 44px;
+    width: 160px;
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.person_set{
+	overflow: hidden;
+}
+.person_set h2{
+	font-size: 16px;
+    line-height: 24px;
+    margin: 12px 24px;
+    font-weight: 700;
+}
+.line{
+	height:1px;
+	background-color: #d9dde1;
+	margin: 0 24px;
+}
+.person_set ul{
+	padding: 10px 0 25px;
+}
+.person_set ul li a{
+	background:url(../img/manager/icon_1.jpg) 160px center no-repeat;
+	text-decoration: none;
+	display: block;
+    position: relative;
+    padding: 0 0 0 54px;
+    height: 48px;
+    line-height: 48px;
+    color: black;
+    transition: background-color .3s ease;
+}
+.person_set ul li a:hover{
+	color: red;
+}
+.person_set ul li a:visited{
+	background-color: red;
+}
+.person_right{
+	float: left;
+    margin-left: 48px;
+    padding: 30px 0;
+    width: 880px;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+.person_right a:hover{
+	color: red;
+}
+.common_title{
+	line-height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.common_title a{
+	color: #93999f;
+	text-decoration: none;
+	float: right;
+    font-weight: 400;
+    font-size: 14px;
+}
+.icon-note:before {
+	display: block;
+	float: left;
+    content: url(../img/manager/icon_edit.jpg);
+    margin-top: 5px;
+}
+.line1{
+	height: 1px;
+    background-color: #d0d6d9;
+    margin-top: 12px;
+}
+.info-wapper{
+	margin: 24px auto 24px 40px;
+}
+.info-box{
+	margin-bottom: 12px;
+}
+.info-box label{
+	display: block;
+	float: left;
+	width: 120px;
+    line-height: 20px;
+    padding: 20px 0;
+    text-align: center;
+    background-color: #f3f5f7;
+    color: #07111b;
+    font-weight: 700;
+}
+.info-box div{
+	width: 680px;
+	float: right;
+    margin-left: 8px;
+    line-height: 20px;
+    padding: 20px 0 20px 22px;
+    border-bottom: 1px solid #d9dde1;
+}
+.clearfix:after{
+	content: '\0020';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/*编辑*/
+.edit_user{
+	background-color: #FFFFFF;
+	z-index: 10;
+	display: none;
+	padding: 15px;
+	width: 470px;
+	height: 470px;
+	margin: auto;
+	border: 2px solid #666666;
+	border-radius: 12px;
+	position: absolute;
+	box-shadow: 0 8px 16px 0 rgba(7,17,27,0.2);
+	left: 35%;
+	top: 15%;
+}
+.edit_user span{
+	font-size: 16px;
+	font-weight: bold;
+}
+.edit_user a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #312E3D;
+	float: right;
+}
+.edit_form{
+	margin-top: 35px;
+}
+.edit_form .form_item{
+	height: 60px;
+}
+.edit_form label{
+	display: block;
+	float: left;
+	width: 100px;
+	font-weight: bold;
+	font-size: 14px;
+	padding-top: 13px;
+	text-align: right;
+	
+}
+.edit_form input{
+	height: 24px;
+	width: 320px;
+	margin-left: 5px;
+	padding: 7px 16px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}
+.form_item textarea{
+	display: block;
+	resize: none;
+	overflow: hidden;
+	float: right;
+	height: 80px;
+	margin-right: 10px;
+	width: 320px;
+	padding: 7px 16px;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}
+.form_btn{
+	width: 350px;
+	margin-top:20px ;
+	margin-right: 25px;
+	float: right;
+}
+.form_btn button{
+	width: 62px;
+	height: 36px;
+	background-color: white;
+	border-radius: 15px;
+	margin: 10px;
+}
+.coverElement{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height:calc(100% + 80px);
+	z-index: 2;
+	background-color: rgba(0,0,0,0.4);
+	filter: alpha(opacity=40);
+}
+/*联系我们*/
+.connect_us{
+	width: 800px;
+	margin: 0 auto;
+}
+.connect_us textarea{
+	display: block;
+	overflow: hidden;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	padding: 20px;
+	resize: none;
+	width: 600px;
+	height: 400px;
+	margin:25px auto;
+	border: 10px solid #6495ED;
+	border-radius:10px;
+}
+.connect_us button{
+	width: 62px;
+	height: 36px;
+	float: left;
+	background-color: white;
+	border-radius: 15px;
+	margin: 10px;
+}
+.btn{
+	width: 180px;
+	height: 60px;
+	margin: 0 auto;
+}
+/*实验室管理*/
+.changeItems{
+	background-color: #FFFFFF;
+	z-index: 10;
+	display: block;
+	padding: 15px;
+	width: 470px;
+	height: 470px;
+	margin: auto;
+	border: 2px solid #666666;
+	border-radius: 12px;
+	position: absolute;
+	box-shadow: 0 8px 16px 0 rgba(7,17,27,0.2);
+	left: 25%;
+	top: 5%;
+}
+.changeItems span{
+	font-size: 16px;
+	font-weight: bold;
+}
+.changeItems a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #312E3D;
+	float: right;
+}
+/*教师，目前所有表格共用这个样式*/
+#teacher{
+	width: calc(100% - 20px);
+	height:100%;
+	/*margin: 0 auto;*/
+	text-align: center;
+}
+#teacher h1{
+	text-align: center;
+}
+.list_teacher{
+	width: 850px;
+	/*height: 600px;*/
+	margin: 0 auto;
+}
+.btn_add{
+	width: 850px;
+	height: 50px;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.list_teacher th,td{
+	border: 1px solid gray;
+	padding:0;
+}
+.list_teacher table th,td{
+	min-width: 100px;
+}
+th{
+	background-color: lightgray;
+}
+.list_teacher table tr td a{
+	width: 20px;
+	margin-left: 10px;
+	color: black;
+	
+}
+.list_teacher button{
+	float: left;
+
+	/*width: 20px;
+	height: 15px;*/
+}
+.change_teacher{
+	display: none;
+}
+/*学生列表*/
+.change_student{
+	display: none;
+}
+/*物品列表*/
+.change_goods{
+	display: none;
+}
+#tbl_goods th{
+	min-width: 200px;
+}

@@ -100,7 +100,7 @@ body{
 	-webkit-transform-style: preserve-3d;
 	-ms-transform-style: preserve-3d;
 	-moz-transform-style: preserve-3d;
-	perspective: 200px;
+	/*perspective: 200px;*/
 	transform: rotateY(90deg);
 
 }
@@ -109,7 +109,8 @@ body{
 	height: 370px;
 	position: relative;
 	font-size:20px;
-	overflow:scroll;overflow-x:hidden;
+	overflow:scroll;
+	overflow-x:hidden;
 }
 .back .top {
 	height: 30px;

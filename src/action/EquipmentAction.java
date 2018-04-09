@@ -98,6 +98,7 @@ public class EquipmentAction implements ModelDriven<Equip>{
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter(); 
 		
+		
 		equipmentService.delById(equip.getEquipId());
 		
 		 JSONObject obj = new JSONObject();

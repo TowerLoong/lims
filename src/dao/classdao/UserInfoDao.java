@@ -1,5 +1,8 @@
 package dao.classdao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -7,11 +10,16 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import dao.pojo.User;
+import dao.pojo.Equip;
 import dao.pojo.UserInfo;
 
 public class UserInfoDao {
 
+/**
+ * ä¿å­˜ç”¨æˆ·ä¿¡æ¯
+ * @param userInfo
+ * @return
+ */
 public static Boolean saveUserInfo(UserInfo userInfo){
 		
 		SessionFactory sessionFactory;
@@ -34,17 +42,68 @@ public static Boolean saveUserInfo(UserInfo userInfo){
 		return true;
 	}
 	
+/**
+ * æŸ¥è¯¢å…¨éƒ¨çš„äººå‘˜ä¿¡æ¯
+ * @return
+ */
+public List<UserInfo> findAll(){
+	SessionFactory sessionFactory;
+	Session session;
+	Transaction transaction;
+
+	Configuration configuration = new Configuration().configure();
+	ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
+			.buildServiceRegistry();
+	sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+	session = sessionFactory.openSession();
+	transaction = session.beginTransaction();
+
+	String hql = "from UserInfo";
+	Query query = session.createQuery(hql);
+	List<UserInfo> emps = query.list();
+
+	transaction.commit();
+	session.close();
+	return emps;
+}
+
+/**
+ * é€šè¿‡idåˆ é™¤äººå‘˜ä¿¡æ¯
+ * @param id
+ * @return
+ */
+public Boolean deleteUserInfoById(Integer id) {
+	SessionFactory sessionFactory;
+	Session session;
+	Transaction transaction;
+
+	Configuration configuration = new Configuration().configure();
+	ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
+			.buildServiceRegistry();
+	sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+	session = sessionFactory.openSession();
+	transaction = session.beginTransaction();
+
+	//å¼€å§‹åˆ é™¤æ“ä½œ
+	UserInfo userInfo = new UserInfo();
+	userInfo.setUserId(id);
+	session.delete(userInfo);
 	
+	transaction.commit();
+	session.close();
+	return true;
+}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
 		UserInfo userInfo = new UserInfo();
 		userInfo.setUserSId("5120152467");
-		userInfo.setUserClass("×¿¼Æ1501");
+		userInfo.setUserClass("×¿ï¿½ï¿½1501");
 		userInfo.setUserEmail("towerloong@hotmail.com");
-		userInfo.setUserIntroduce("´ó¼ÒºÃ£¬ÎÒÊÇ¿É°®µÄĞ¡¿É°®");
-		userInfo.setUserMajor("¼ÆËã»ú¿ÆÑ§Óë¼¼Êõ");
-		userInfo.setUserName("ÌÕÎÄÁú");
+		userInfo.setUserIntroduce("ï¿½ï¿½ÒºÃ£ï¿½ï¿½ï¿½ï¿½Ç¿É°ï¿½ï¿½ï¿½Ğ¡ï¿½É°ï¿½");
+		userInfo.setUserMajor("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§ï¿½ë¼¼ï¿½ï¿½");
+		userInfo.setUserName("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		userInfo.setUserPhone("18784028326");
 		
 		saveUserInfo(userInfo);

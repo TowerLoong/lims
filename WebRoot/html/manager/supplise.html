@@ -4,13 +4,13 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="../../css/manager.css" />
-		
+		<script src="../../js/jquery.js"></script>
 	</head>
 	<body>
 		<div id="teacher">
 			<div class="list_teacher">
 				<div class="btn_add">
-					<button value="add">添加</button>
+					<button value="add" onclick="addItem()">添加</button>
 				</div>
 				<table id="tbl_goods" cellpadding="0" cellspacing="0">
 					<tr>
@@ -34,7 +34,7 @@
 							<input type="text" name="num" class="item_num" >
 						</div>
 						<div class="form_btn">
-							<button onclick="changeSubmit()">确认</button>
+							<button onclick="addSubmit()">确认</button>
 							<button onclick="closeEdit()">取消</button>
 						</div>
 					</div>
@@ -58,6 +58,54 @@
 				numInput.value = tds[2].innerHTML;
 				document.getElementsByClassName("change_goods")[0].style.display = "block";//显示编辑框
 			};
+			//添加物品时判断物品是否存在
+//			console.log(isExist("电脑"))	;
+			function addItem(){
+				document.body.appendChild(hidden);//遮住其他部分
+				document.getElementsByClassName("change_goods")[0].style.display = "block";//显示编辑框
+				nameInput.value = '';
+				numInput.value = '';
+			}
+			function addSubmit(){
+				var trs = document.getElementById("tbl_goods").children;
+				var newId =trs.length;
+				var flag = isExist(nameInput.value);
+				if(nameInput.value!=""&&numInput.value!=""){
+					$.ajax({
+					type:'get',
+					url:"/lims/Equipment_saveEquipment?equipName="+nameInput.value+"&equipNum="+numInput.value,
+					async:true,
+					dataType:'json',
+					success:function(response){
+						if(flag == false){
+							var tr = document.createElement('tr');
+							table.appendChild(tr);
+							var tds = new Array();
+							for(var i=0;i<4;i++){
+								var td = document.createElement('td');
+								tds.push(td);
+							};
+							tds[0].innerHTML = newId;
+							tds[1].innerHTML = nameInput.value;
+							tds[2].innerHTML = numInput.value;
+							tds[3].innerHTML = '<a href="javascipt:void(0)" onclick="deleteItem(this)">删除</a>';
+							for(var j=0;j<4;j++){
+								tr.appendChild(tds[j]);
+							}
+					}else{
+						//如果新增物品不存在同类则表格增加一行
+							var newNum = trs[flag].children[2].innerHTML;
+							var test = parseInt(newNum)+parseInt(numInput.value);
+							trs[flag].children[2].innerHTML = test.toString();
+					}
+					closeEdit();
+					}
+				});
+				}
+				else{
+					alert("请完善信息！");
+				}
+			}
 			function changeSubmit(){
 				var myTds = document.getElementById("tbl_goods").rows[rowIndex].cells;
 				myTds[1].innerHTML = nameInput.value;
@@ -67,66 +115,116 @@
 			function deleteItem(item){
 				var myTable = document.getElementById("tbl_goods");
 				var deleteRow = item.parentNode.parentNode;
-				myTable.removeChild(deleteRow);
+				$.ajax({
+					type:"get",
+					url:"/lims/Equipment_delById?equipId="+deleteRow.id,
+					async:true,
+					dataType:'json',
+					success:function(response){
+						myTable.removeChild(deleteRow);
+					}
+				})
+//				myTable.removeChild(deleteRow);
 			};
 			function closeEdit(){
 				document.getElementsByClassName("change_goods")[0].style.display = "none";
 				document.body.removeChild(hidden);
 			};
-			var datas =[
-			{
-				id:1,
-				name:'电脑',
-				num:18,
-			},{
-				id:2,
-				name:'电视',
-				num:2,
-			},
-			{
-				id:3,
-				name:'冰箱',
-				num:3,
-			},
-			{
-				id:4,
-				name:'服务器',
-				num:1,
-			},
-			{
-				id:5,
-				name:'投影仪',
-				num:3,
-			},
-			{
-				id:6,
-				name:'打印机',
-				num:2,
-			},
-			{
-				id:7,
-				name:'沙发',
-				num:1,
-			}
-			];
+//			var datas =[
+//			{
+//				id:1,
+//				name:'电脑',
+//				num:18,
+//			},{
+//				id:2,
+//				name:'电视',
+//				num:2,
+//			},
+//			{
+//				id:3,
+//				name:'冰箱',
+//				num:3,
+//			},
+//			{
+//				id:4,
+//				name:'服务器',
+//				num:1,
+//			},
+//			{
+//				id:5,
+//				name:'投影仪',
+//				num:3,
+//			},
+//			{
+//				id:6,
+//				name:'打印机',
+//				num:2,
+//			},
+//			{
+//				id:7,
+//				name:'沙发',
+//				num:1,
+//			}
+//			];
+			var datas = new Array();
 			var table = document.getElementById('tbl_goods');
-			datas.forEach(function(item,index){
-				
-				var tr = document.createElement('tr');
-				table.appendChild(tr);
-				var tds = new Array();
-				for(var i=0;i<4;i++){
-					var td = document.createElement('td');
-					tds.push(td);
-				};
-				tds[0].innerHTML = item.id;
-				tds[1].innerHTML = item.name;
-				tds[2].innerHTML = item.num;
-				tds[3].innerHTML = '<a href="javascipt:void(0)" onclick="changeItem(this)">修改</a><a href="javascipt:void(0)" onclick="deleteItem(this)">删除</a>';
-				for(var j=0;j<4;j++){
-					tr.appendChild(tds[j]);
+			$.ajax({
+				type:"get",
+				url:"/lims/Equipment_findAll",
+				async:true,
+				dataType:'json',
+				success:function(response){
+//					console.log(response);
+					if(response!=""){
+						datas = response;
+						datas.forEach(function(item,index){
+							var tr = document.createElement('tr');
+							tr.id = item.equipId;
+							table.appendChild(tr);
+							var tds = new Array();
+							for(var i=0;i<4;i++){
+								var td = document.createElement('td');
+								tds.push(td);
+							};
+							tds[0].innerHTML = index + 1;
+							tds[1].innerHTML = item.equipmentName;
+							tds[2].innerHTML = item.equipmentNum;
+							tds[3].innerHTML = '<a href="javascipt:void(0)" onclick="deleteItem(this)">删除</a>';
+							for(var j=0;j<4;j++){
+								tr.appendChild(tds[j]);
+							}
+						});
+					}else{
+						alert("暂无数据");
+					}
 				}
-			})
+			});
+			
+//			datas.forEach(function(item,index){
+//				var tr = document.createElement('tr');
+//				table.appendChild(tr);
+//				var tds = new Array();
+//				for(var i=0;i<4;i++){
+//					var td = document.createElement('td');
+//					tds.push(td);
+//				};
+//				tds[0].innerHTML = item.id;
+//				tds[1].innerHTML = item.name;
+//				tds[2].innerHTML = item.num;
+//				tds[3].innerHTML = '<a href="javascipt:void(0)" onclick="changeItem(this)">修改</a><a href="javascipt:void(0)" onclick="deleteItem(this)">删除</a>';
+//				for(var j=0;j<4;j++){
+//					tr.appendChild(tds[j]);
+//				}
+//			})
+			function isExist(equip){
+				var trs = document.getElementById("tbl_goods").children;
+				for(var i = 1;i<trs.length;i++){
+					if(equip == trs[i].children[1].innerHTML){
+						return(i);
+					}
+				}
+				return false;
+			}
 		</script>
 	</body>
 </html>

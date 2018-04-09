@@ -91,6 +91,11 @@ public class EquipmentDao {
 		return emps;
 	}
 
+	/**
+	 * 通过id删除器材
+	 * @param id
+	 * @return
+	 */
 	public Boolean deleteEquipById(Integer id) {
 		SessionFactory sessionFactory;
 		Session session;

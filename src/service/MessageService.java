@@ -19,7 +19,7 @@ public class MessageService {
 		return true;
 	}
 	
-	/*
+	/**
 	 * 查询最近的一条“联系我们”信息
 	 */
 	public Message findLatestMes(){

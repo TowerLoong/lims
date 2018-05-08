@@ -3,8 +3,8 @@ package dao.pojo;
 public class User {
 	
 	private Integer userId; //id
-	private String userName; //ÓÃ»§Ãû
-	private String userPassword; //ÃÜÂë
+	private String userName; //å§“å
+	private String userPassword; //å¯†ç 
 	
 	public String getUserName() {
 		return userName;

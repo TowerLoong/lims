@@ -3,13 +3,13 @@ package dao.pojo;
 public class UserInfo {
 	
 	private Integer userId; //id
-	private String userName; //ĞÕÃû
-	private String userSId; //Ñ§ºÅ
+	private String userName; //åå­—
+	private String userSId; //Ñ§ï¿½ï¿½
 	private String userMajor; //×¨Òµ
-	private String userClass; //°à¼¶
-	private String userPhone; //ÊÖ»úºÅ
-	private String userEmail; //ÓÊÏä
-	private String userIntroduce; //¸öÈË½éÉÜ
+	private String userClass; //ï¿½à¼¶
+	private String userPhone; //ï¿½æ‰‹æœº
+	private String userEmail; //é‚®ç®±
+	private String userIntroduce; //ç®€ä»‹
 	
 	public Integer getUserId() {
 		return userId;

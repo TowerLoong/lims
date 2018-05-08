@@ -9,11 +9,56 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+import org.junit.Test;
 
 import dao.pojo.User;
+import net.sf.json.JSONObject;
 
-public class UserDao {
+public class UserDao{
+	
+	//check登录
+	public Boolean doLogin(User user){
+		
+		SessionFactory sessionFactory;
+	    Session session;
+		Transaction transaction;
+		
+		Configuration configuration = new Configuration().configure();
+		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
+				.applySettings(configuration.getProperties())
+				.buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
+		session = sessionFactory.openSession();
+		transaction = session.beginTransaction();
+		
+		String hql = "from User a where a.userName = ? and a.userPassword = ?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, user.getUserName());
+		query.setParameter(1, user.getUserPassword());
+		
+		List<User> list = query.list(); 
+		
+		session.close();
+		transaction.commit();
+		
+		JSONObject jObject = new JSONObject();
+		
+		if(list.isEmpty()){
+			jObject.put("error", "eroor");
+			return false;
+		}else{
+			jObject.put("id", user.getUserId());
+			jObject.put("username", user.getUserName());
+			
+			return true;
+		}
+		
+//		System.out.println("name:"+list.get(0).getUserName()+"id:"+list.get(0).getUserId());
+		
+	}
+
+	//查询是否存在该成员
 	public static Boolean haveUser(User user){
 		
 		SessionFactory sessionFactory;
@@ -29,7 +74,7 @@ public class UserDao {
 		session = sessionFactory.openSession();
 		transaction = session.beginTransaction();
 		
-		String hql = "from user a where a.USERNAME = ? and a.PASSWORD = ?";
+		String hql = "from User a where a.userName = ? and a.userPassword = ?";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, user.getUserName());
 		query.setParameter(1, user.getUserPassword());
@@ -40,15 +85,16 @@ public class UserDao {
 		transaction.commit();
 		
 		System.out.println(list.get(0).getUserName());
-		return true;
-		/*
+//		return true;
+		
 		if(list.get(0) == null)
 			return false;
 		else
 			return true;
-		*/
+		
 	}
 	
+	//保存该成员
 	public static Boolean saveuser(User user){
 		
 		SessionFactory sessionFactory;
@@ -70,6 +116,7 @@ public class UserDao {
 		transaction.commit();
 		return true;
 	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

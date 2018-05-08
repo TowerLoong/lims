@@ -40,7 +40,7 @@ public class EquipmentAction implements ModelDriven<Equip>{
 		equipmentService.saveEquip(equip);
 		
 		//返回json数据（！！！中文有乱码）
-		HttpServletResponse response=ServletActionContext.getResponse(); 
+		HttpServletResponse response = ServletActionContext.getResponse(); 
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		 PrintWriter out = response.getWriter(); 
@@ -61,7 +61,7 @@ public class EquipmentAction implements ModelDriven<Equip>{
 		equipmentService = new EquipmentService();
 		List<Equip> allList = equipmentService.findAll();
 		
-		HttpServletResponse response=ServletActionContext.getResponse(); 
+		HttpServletResponse response = ServletActionContext.getResponse(); 
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter(); 
@@ -93,7 +93,7 @@ public class EquipmentAction implements ModelDriven<Equip>{
 	public void delById() throws IOException{
 		equipmentService = new EquipmentService();
 		
-		HttpServletResponse response=ServletActionContext.getResponse(); 
+		HttpServletResponse response = ServletActionContext.getResponse(); 
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter(); 

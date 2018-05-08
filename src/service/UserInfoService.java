@@ -22,7 +22,7 @@ public class UserInfoService {
 		return true;
 	}
 	
-	/*
+	/**
 	 * 查询全部用户信息
 	 */
 	public List<UserInfo> findAll(){

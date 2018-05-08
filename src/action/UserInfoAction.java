@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
+import org.junit.Test;
 
 import com.opensymphony.xwork2.ModelDriven;
 

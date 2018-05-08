@@ -18,7 +18,7 @@ public class Admin {
 	}
 
 	public Admin(Integer adminId, String adminName, String adminPassword) {
-		super();
+		super(); 
 		this.adminId = adminId;
 		this.adminName = adminName;
 		this.adminPassword = adminPassword;

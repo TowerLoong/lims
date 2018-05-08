@@ -15,12 +15,12 @@ import dao.pojo.UserInfo;
 
 public class UserInfoDao {
 
-/**
- * 保存用户信息
- * @param userInfo
- * @return
- */
-public static Boolean saveUserInfo(UserInfo userInfo){
+	/**
+	 * 保存用户信息
+	 * @param userInfo
+	 * @return
+	 */
+	public static Boolean saveUserInfo(UserInfo userInfo){
 		
 		SessionFactory sessionFactory;
 	    Session session;
@@ -42,57 +42,58 @@ public static Boolean saveUserInfo(UserInfo userInfo){
 		return true;
 	}
 	
-/**
- * 查询全部的人员信息
- * @return
- */
-public List<UserInfo> findAll(){
-	SessionFactory sessionFactory;
-	Session session;
-	Transaction transaction;
-
-	Configuration configuration = new Configuration().configure();
-	ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
-			.buildServiceRegistry();
-	sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-	session = sessionFactory.openSession();
-	transaction = session.beginTransaction();
-
-	String hql = "from UserInfo";
-	Query query = session.createQuery(hql);
-	List<UserInfo> emps = query.list();
-
-	transaction.commit();
-	session.close();
-	return emps;
-}
-
-/**
- * 通过id删除人员信息
- * @param id
- * @return
- */
-public Boolean deleteUserInfoById(Integer id) {
-	SessionFactory sessionFactory;
-	Session session;
-	Transaction transaction;
-
-	Configuration configuration = new Configuration().configure();
-	ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
-			.buildServiceRegistry();
-	sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-	session = sessionFactory.openSession();
-	transaction = session.beginTransaction();
-
-	//开始删除操作
-	UserInfo userInfo = new UserInfo();
-	userInfo.setUserId(id);
-	session.delete(userInfo);
+	/**
+	 * 查询全部的人员信息
+	 * @return
+	 */
+	public List<UserInfo> findAll(){
+		SessionFactory sessionFactory;
+		Session session;
+		Transaction transaction;
 	
-	transaction.commit();
-	session.close();
-	return true;
-}
+		Configuration configuration = new Configuration().configure();
+		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder()
+				.applySettings(configuration.getProperties())
+				.buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		session = sessionFactory.openSession();
+		transaction = session.beginTransaction();
+	
+		String hql = "from UserInfo";
+		Query query = session.createQuery(hql);
+		List<UserInfo> emps = query.list();
+	
+		transaction.commit();
+		session.close();
+		return emps;
+	}
+	
+	/**
+	 * 通过id删除人员信息
+	 * @param id
+	 * @return
+	 */
+	public Boolean deleteUserInfoById(Integer id) {
+		SessionFactory sessionFactory;
+		Session session;
+		Transaction transaction;
+	
+		Configuration configuration = new Configuration().configure();
+		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
+				configuration.getProperties()).buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+		session = sessionFactory.openSession();
+		transaction = session.beginTransaction();
+	
+		//开始删除操作
+		UserInfo userInfo = new UserInfo();
+		userInfo.setUserId(id);
+		session.delete(userInfo);
+		
+		transaction.commit();
+		session.close();
+		return true;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

@@ -12,12 +12,13 @@
 			<result name="success">jsp/joinus.jsp</result>
 		</action>
 
-		<action name="Equipment_*" class="action.EquipmentAction"
-			method="{1}">
+		<action name="Equipment_*" class="action.EquipmentAction" method="{1}">
 		</action>
 
-		<action name="Message_*" class="action.MessageAction"
-			method="{1}">
+		<action name="Message_*" class="action.MessageAction" method="{1}">
+		</action>
+		
+		<action name="User_*" class="action.UserAction" method="{1}">
 		</action>
 
 	</package>
